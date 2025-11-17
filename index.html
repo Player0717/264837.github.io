@@ -1,0 +1,2367 @@
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>湖北黄冈 - 英雄城市，人文黄冈</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 引入Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <!-- 引入Google字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C41E3A', // 黄冈红色（革命文化）
+            secondary: '#2E7D32', // 绿色（自然生态）
+            accent: '#F57C00', // 橙色（活力与美食）
+            dark: '#1A202C',
+            light: '#F7FAFC'
+          },
+          fontFamily: {
+            sans: ['Noto Sans SC', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+      }
+      .bg-blur {
+        backdrop-filter: blur(8px);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease-out;
+      }
+      .fade-in.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .scale-in {
+        opacity: 0;
+        transform: scale(0.95);
+        transition: all 0.6s ease-out;
+      }
+      .scale-in.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-light antialiased">
+ 
+    <!-- 导航栏 -->
+<header id="navbar" class="fixed w-full z-50 transition-all duration-300">
+    <nav class="container mx-auto px-4 py-3 flex items-center justify-between bg-transparent">
+      <a href="#" class="flex items-center space-x-2">
+        <span class="text-primary text-3xl"><i class="fa fa-map-marker"></i></span>
+        <span class="text-white font-bold text-xl md:text-2xl text-shadow">湖北黄冈</span>
+      </a>
+      
+      <!-- 桌面端导航（全部一级+二级） -->
+      <div class="hidden md:flex items-center space-x-6">
+        <!-- 首页（无二级） -->
+        <a href="#home" class="text-white hover:text-primary/90 transition-colors font-medium text-shadow">首页</a>
+        
+        <!-- 1. 城市介绍（一级+二级） -->
+        <div class="relative group">
+          <a href="#city-intro" class="text-white hover:text-primary/90 transition-colors font-medium text-shadow flex items-center">
+            城市介绍
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <li><a href="#city-overview" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">城市概况</a></li>
+            <li><a href="#city-history" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">历史沿革</a></li>
+            <li><a href="#city-district" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">行政区划</a></li>
+            <li><a href="#city-economy" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">经济发展</a></li>
+          </ul>
+        </div>
+        
+        <!-- 2. 自然风光（一级+二级） -->
+        <div class="relative group">
+          <a href="#nature" class="text-white hover:text-primary/90 transition-colors font-medium text-shadow flex items-center">
+            自然风光
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <li><a href="#nature-mountain" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">山地景观</a></li>
+            <li><a href="#nature-water" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">水域风光</a></li>
+            <li><a href="#nature-forest" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">森林植被</a></li>
+            <li><a href="#nature-park" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">湿地公园</a></li>
+          </ul>
+        </div>
+        
+        <!-- 3. 特色美食（一级+二级） -->
+        <div class="relative group">
+          <a href="#food" class="text-white hover:text-primary/90 transition-colors font-medium text-shadow flex items-center">
+            特色美食
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <li><a href="#food-local" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">本地名菜</a></li>
+            <li><a href="#food-snack" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">特色小吃</a></li>
+            <li><a href="#food-fruit" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">瓜果特产</a></li>
+            <li><a href="#food-drink" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">茶饮美酒</a></li>
+          </ul>
+        </div>
+        
+        <!-- 4. 文化底蕴（一级+二级） -->
+        <div class="relative group">
+          <a href="#culture" class="text-white hover:text-primary/90 transition-colors font-medium text-shadow flex items-center">
+            文化底蕴
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <li><a href="#culture-historic" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">历史文化</a></li>
+            <li><a href="#culture-revolution" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">红色文化</a></li>
+            <li><a href="#culture-education" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">教育文化</a></li>
+            <li><a href="#culture-folk" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">民俗艺术</a></li>
+          </ul>
+        </div>
+        
+        <!-- 5. 景点大全（一级+二级） -->
+        <div class="relative group">
+          <a href="#attractions" class="text-white hover:text-primary/90 transition-colors font-medium text-shadow flex items-center">
+            景点大全
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <li><a href="#attractions-all" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">全部景点</a></li>
+            <li><a href="#attractions-nature" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">自然风光</a></li>
+            <li><a href="#attractions-historic" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">人文古迹</a></li>
+            <li><a href="#attractions-red" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">红色旅游</a></li>
+          </ul>
+        </div>
+        
+        <!-- 6. 门票预订（一级+二级） -->
+        <div class="relative group">
+          <a href="#tickets" class="text-white hover:text-primary/90 transition-colors font-medium text-shadow flex items-center">
+            门票预订
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <li><a href="#tickets-single" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">单景点门票</a></li>
+            <li><a href="#tickets-package" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">套票优惠</a></li>
+            <li><a href="#tickets-guide" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">购票指南</a></li>
+            <li><a href="#tickets-refund" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">退票政策</a></li>
+          </ul>
+        </div>
+        
+        <!-- 7. 酒店住宿（一级+二级） -->
+        <div class="relative group">
+          <a href="#hotels" class="text-white hover:text-primary/90 transition-colors font-medium text-shadow flex items-center">
+            酒店住宿
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <li><a href="#hotels-star" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">星级酒店</a></li>
+            <li><a href="#hotels-economy" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">经济型酒店</a></li>
+            <li><a href="#hotels-homestay" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">民宿客栈</a></li>
+            <li><a href="#hotels-resort" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">度假村</a></li>
+          </ul>
+        </div>
+        
+        <!-- 8. 交通指南（一级+二级） -->
+        <div class="relative group">
+          <a href="#transport" class="text-white hover:text-primary/90 transition-colors font-medium text-shadow flex items-center">
+            交通指南
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <li><a href="#transport-flight" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">飞机出行</a></li>
+            <li><a href="#transport-train" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">火车高铁</a></li>
+            <li><a href="#transport-bus" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">长途汽车</a></li>
+            <li><a href="#transport-city" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">市内交通</a></li>
+          </ul>
+        </div>
+        
+        <!-- 9. 发展现状（一级+二级） -->
+        <div class="relative group">
+          <a href="#development" class="text-white hover:text-primary/90 transition-colors font-medium text-shadow flex items-center">
+            发展现状
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <li><a href="#development-economy" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">经济发展</a></li>
+            <li><a href="#development-traffic" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">交通建设</a></li>
+            <li><a href="#development-city" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">城市建设</a></li>
+            <li><a href="#development-tourism" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">旅游发展</a></li>
+          </ul>
+        </div>
+      </div>
+    
+ 
+    
+      <!-- 移动端菜单按钮 -->
+      <button id="menu-toggle" class="md:hidden text-white text-2xl">
+        <i class="fa fa-bars"></i>
+      </button>
+    </nav>
+    
+    <!-- 移动端导航菜单（全部一级+二级导航） -->
+<div id="mobile-menu" class="md:hidden hidden bg-dark/95 backdrop-blur-md">
+    <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+      <!-- 首页（无二级导航） -->
+      <a href="#home" class="text-white hover:text-primary/90 transition-colors font-medium py-2 border-b border-gray-700">首页</a>
+      
+      <!-- 1. 城市介绍（一级+二级） -->
+      <div class="mobile-submenu border-b border-gray-700 pb-2">
+        <a href="#city-intro" class="flex justify-between items-center text-white hover:text-primary/90 font-medium py-2">
+          城市介绍
+          <i class="fa fa-plus mobile-submenu-toggle"></i>
+        </a>
+        <ul class="mobile-submenu-content hidden pl-4 mt-1 space-y-2 border-l-2 border-gray-700">
+          <li><a href="#city-overview" class="block py-1 text-gray-300 hover:text-primary">城市概况</a></li>
+          <li><a href="#city-history" class="block py-1 text-gray-300 hover:text-primary">历史沿革</a></li>
+          <li><a href="#city-district" class="block py-1 text-gray-300 hover:text-primary">行政区划</a></li>
+          <li><a href="#city-economy" class="block py-1 text-gray-300 hover:text-primary">经济发展</a></li>
+        </ul>
+      </div>
+      
+      <!-- 2. 自然风光（一级+二级） -->
+      <div class="mobile-submenu border-b border-gray-700 pb-2">
+        <a href="#nature" class="flex justify-between items-center text-white hover:text-primary/90 font-medium py-2">
+          自然风光
+          <i class="fa fa-plus mobile-submenu-toggle"></i>
+        </a>
+        <ul class="mobile-submenu-content hidden pl-4 mt-1 space-y-2 border-l-2 border-gray-700">
+          <li><a href="#nature-mountain" class="block py-1 text-gray-300 hover:text-primary">山地景观</a></li>
+          <li><a href="#nature-water" class="block py-1 text-gray-300 hover:text-primary">水域风光</a></li>
+          <li><a href="#nature-forest" class="block py-1 text-gray-300 hover:text-primary">森林植被</a></li>
+          <li><a href="#nature-park" class="block py-1 text-gray-300 hover:text-primary">湿地公园</a></li>
+        </ul>
+      </div>
+      
+      <!-- 3. 特色美食（一级+二级） -->
+      <div class="mobile-submenu border-b border-gray-700 pb-2">
+        <a href="#food" class="flex justify-between items-center text-white hover:text-primary/90 font-medium py-2">
+          特色美食
+          <i class="fa fa-plus mobile-submenu-toggle"></i>
+        </a>
+        <ul class="mobile-submenu-content hidden pl-4 mt-1 space-y-2 border-l-2 border-gray-700">
+          <li><a href="#food-local" class="block py-1 text-gray-300 hover:text-primary">本地名菜</a></li>
+          <li><a href="#food-snack" class="block py-1 text-gray-300 hover:text-primary">特色小吃</a></li>
+          <li><a href="#food-fruit" class="block py-1 text-gray-300 hover:text-primary">瓜果特产</a></li>
+          <li><a href="#food-drink" class="block py-1 text-gray-300 hover:text-primary">茶饮美酒</a></li>
+        </ul>
+      </div>
+      
+      <!-- 4. 文化底蕴（一级+二级） -->
+      <div class="mobile-submenu border-b border-gray-700 pb-2">
+        <a href="#culture" class="flex justify-between items-center text-white hover:text-primary/90 font-medium py-2">
+          文化底蕴
+          <i class="fa fa-plus mobile-submenu-toggle"></i>
+        </a>
+        <ul class="mobile-submenu-content hidden pl-4 mt-1 space-y-2 border-l-2 border-gray-700">
+          <li><a href="#culture-historic" class="block py-1 text-gray-300 hover:text-primary">历史文化</a></li>
+          <li><a href="#culture-revolution" class="block py-1 text-gray-300 hover:text-primary">红色文化</a></li>
+          <li><a href="#culture-education" class="block py-1 text-gray-300 hover:text-primary">教育文化</a></li>
+          <li><a href="#culture-folk" class="block py-1 text-gray-300 hover:text-primary">民俗艺术</a></li>
+        </ul>
+      </div>
+      
+      <!-- 5. 景点大全（一级+二级） -->
+      <div class="mobile-submenu border-b border-gray-700 pb-2">
+        <a href="#attractions" class="flex justify-between items-center text-white hover:text-primary/90 font-medium py-2">
+          景点大全
+          <i class="fa fa-plus mobile-submenu-toggle"></i>
+        </a>
+        <ul class="mobile-submenu-content hidden pl-4 mt-1 space-y-2 border-l-2 border-gray-700">
+          <li><a href="#attractions-all" class="block py-1 text-gray-300 hover:text-primary">全部景点</a></li>
+          <li><a href="#attractions-nature" class="block py-1 text-gray-300 hover:text-primary">自然风光</a></li>
+          <li><a href="#attractions-historic" class="block py-1 text-gray-300 hover:text-primary">人文古迹</a></li>
+          <li><a href="#attractions-red" class="block py-1 text-gray-300 hover:text-primary">红色旅游</a></li>
+        </ul>
+      </div>
+      
+      <!-- 6. 门票预订（一级+二级） -->
+      <div class="mobile-submenu border-b border-gray-700 pb-2">
+        <a href="#tickets" class="flex justify-between items-center text-white hover:text-primary/90 font-medium py-2">
+          门票预订
+          <i class="fa fa-plus mobile-submenu-toggle"></i>
+        </a>
+        <ul class="mobile-submenu-content hidden pl-4 mt-1 space-y-2 border-l-2 border-gray-700">
+          <li><a href="#tickets-single" class="block py-1 text-gray-300 hover:text-primary">单景点门票</a></li>
+          <li><a href="#tickets-package" class="block py-1 text-gray-300 hover:text-primary">套票优惠</a></li>
+          <li><a href="#tickets-guide" class="block py-1 text-gray-300 hover:text-primary">购票指南</a></li>
+          <li><a href="#tickets-refund" class="block py-1 text-gray-300 hover:text-primary">退票政策</a></li>
+        </ul>
+      </div>
+      
+      <!-- 7. 酒店住宿（一级+二级） -->
+      <div class="mobile-submenu border-b border-gray-700 pb-2">
+        <a href="#hotels" class="flex justify-between items-center text-white hover:text-primary/90 font-medium py-2">
+          酒店住宿
+          <i class="fa fa-plus mobile-submenu-toggle"></i>
+        </a>
+        <ul class="mobile-submenu-content hidden pl-4 mt-1 space-y-2 border-l-2 border-gray-700">
+          <li><a href="#hotels-star" class="block py-1 text-gray-300 hover:text-primary">星级酒店</a></li>
+          <li><a href="#hotels-economy" class="block py-1 text-gray-300 hover:text-primary">经济型酒店</a></li>
+          <li><a href="#hotels-homestay" class="block py-1 text-gray-300 hover:text-primary">民宿客栈</a></li>
+          <li><a href="#hotels-resort" class="block py-1 text-gray-300 hover:text-primary">度假村</a></li>
+        </ul>
+      </div>
+      
+      <!-- 8. 交通指南（一级+二级） -->
+      <div class="mobile-submenu border-b border-gray-700 pb-2">
+        <a href="#transport" class="flex justify-between items-center text-white hover:text-primary/90 font-medium py-2">
+          交通指南
+          <i class="fa fa-plus mobile-submenu-toggle"></i>
+        </a>
+        <ul class="mobile-submenu-content hidden pl-4 mt-1 space-y-2 border-l-2 border-gray-700">
+          <li><a href="#transport-flight" class="block py-1 text-gray-300 hover:text-primary">飞机出行</a></li>
+          <li><a href="#transport-train" class="block py-1 text-gray-300 hover:text-primary">火车高铁</a></li>
+          <li><a href="#transport-bus" class="block py-1 text-gray-300 hover:text-primary">长途汽车</a></li>
+          <li><a href="#transport-city" class="block py-1 text-gray-300 hover:text-primary">市内交通</a></li>
+        </ul>
+      </div>
+      
+      <!-- 9. 发展现状（一级+二级） -->
+      <div class="mobile-submenu border-b border-gray-700 pb-2">
+        <a href="#development" class="flex justify-between items-center text-white hover:text-primary/90 font-medium py-2">
+          发展现状
+          <i class="fa fa-plus mobile-submenu-toggle"></i>
+        </a>
+        <ul class="mobile-submenu-content hidden pl-4 mt-1 space-y-2 border-l-2 border-gray-700">
+          <li><a href="#development-economy" class="block py-1 text-gray-300 hover:text-primary">经济发展</a></li>
+          <li><a href="#development-traffic" class="block py-1 text-gray-300 hover:text-primary">交通建设</a></li>
+          <li><a href="#development-city" class="block py-1 text-gray-300 hover:text-primary">城市建设</a></li>
+          <li><a href="#development-tourism" class="block py-1 text-gray-300 hover:text-primary">旅游发展</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </header>
+  <!-- 英雄区域 -->
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.peUvgzAbcLxts4XGeH6QYgHaEK?w=239&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="黄冈风景" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-dark/50"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 z-10 text-center">
+      <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-white mb-4 animate-[fadeIn_1.5s_ease-in-out] text-shadow-lg">
+        湖北黄冈
+      </h1>
+      <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-white/90 max-w-3xl mx-auto mb-8 animate-[fadeIn_2s_ease-in-out] text-shadow">
+        英雄的城市 · 人文的黄冈 · 教育的圣地
+      </p>
+      <a href="#about" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-full transition-all transform hover:scale-105 animate-[bounce_2s_infinite]">
+        了解更多 <i class="fa fa-arrow-down ml-2"></i>
+      </a>
+    </div>
+    
+    <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+      <a href="#about" class="text-white animate-bounce">
+        <i class="fa fa-angle-double-down text-3xl"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- 城市介绍 -->
+  <section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">英雄城市，人文黄冈</h2>
+        <div class="w-20 h-1 bg-primary mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <h3 class="text-2xl font-semibold mb-4 text-primary">黄冈概况</h3>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            黄冈市位于湖北省东部、大别山南麓、长江中游北岸，是武汉城市圈的重要组成部分。全市版图面积1.74万平方公里，总人口750万，辖1区2市7县及1个国家级高新区。
+          </p>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            黄冈是著名的革命老区、红色热土，是鄂豫皖革命根据地的中心，红四方面军、红二十五军、红二十八军都诞生在这里，为中国革命胜利作出了重要贡献。
+          </p>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            这里不仅是英雄的城市，更是教育的圣地，黄冈教育品牌享誉全国。同时，黄冈拥有丰富的自然资源和人文景观，是一座宜居宜游的魅力城市。
+          </p>
+          
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="bg-gray-100 p-4 rounded-lg text-center transform transition-transform hover:scale-105">
+              <span class="block text-3xl font-bold text-primary mb-1">1.74万</span>
+              <span class="text-gray-600 text-sm">平方公里面积</span>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg text-center transform transition-transform hover:scale-105">
+              <span class="block text-3xl font-bold text-primary mb-1">750万</span>
+              <span class="text-gray-600 text-sm">总人口</span>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg text-center transform transition-transform hover:scale-105">
+              <span class="block text-3xl font-bold text-primary mb-1">10</span>
+              <span class="text-gray-600 text-sm">区县数量</span>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg text-center transform transition-transform hover:scale-105">
+              <span class="block text-3xl font-bold text-primary mb-1">1995</span>
+              <span class="text-gray-600 text-sm">设市年份</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="order-1 md:order-2 relative">
+          <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.pHjY61PKqhzMSF-S470q6QHaEK?w=245&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="黄冈城市风光" class="w-full h-auto rounded-lg shadow-xl">
+          <div class="absolute -bottom-6 -left-6 bg-primary text-white p-4 rounded-lg shadow-lg hidden md:block">
+            <p class="font-bold text-xl">2000+年</p>
+            <p class="text-sm">建城历史</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 自然风光 -->
+  <section id="nature" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">秀美风光，生态黄冈</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">黄冈地处大别山南麓，长江之滨，拥有丰富的自然景观和生态资源，是休闲度假的理想之地。</p>
+        <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 景点1 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.7yVX34D4uGp0vr0bspbKEwHaE2?w=312&h=200&c=12&rs=1&o=6&dpr=1.5&pid=23.1" alt="大别山" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+              <div class="p-4 text-white">
+                <p class="text-sm"><i class="fa fa-map-marker mr-1"></i> 黄冈市罗田县</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-secondary">大别山国家森林公园</h3>
+            <p class="text-gray-600 text-sm">
+              大别山是中国著名的革命老区，也是国家级森林公园，主峰天堂寨海拔1729米，素有"中原第一峰"之称，自然风光雄奇壮丽。
+            </p>
+          </div>
+        </div>
+        
+        <!-- 景点2 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.U18AbAL8CkR5upuKWdavKwHaE9?w=185&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="遗爱湖" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+              <div class="p-4 text-white">
+                <p class="text-sm"><i class="fa fa-map-marker mr-1"></i> 黄冈市黄州区</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-secondary">遗爱湖公园</h3>
+            <p class="text-gray-600 text-sm">
+              遗爱湖是黄冈市区内的城中湖，因苏轼《遗爱亭记》而得名，公园总面积5.03平方公里，是国家AAAA级旅游景区，市民休闲游憩的好去处。
+            </p>
+          </div>
+        </div>
+        
+        <!-- 景点3 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.ETKVBJFn0uOp11jkqW6dAAHaFj?w=173&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="薄刀峰" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+              <div class="p-4 text-white">
+                <p class="text-sm"><i class="fa fa-map-marker mr-1"></i> 黄冈市罗田县</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-secondary">薄刀峰风景区</h3>
+            <p class="text-gray-600 text-sm">
+              薄刀峰原名鹤皋峰，因其峰高耸入云，岩壁陡峻，形似薄刀而得名，是大别山国家森林公园的核心景区之一，以奇松、怪石、云海著称。
+            </p>
+          </div>
+        </div>
+        
+        <!-- 景点4 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.2ACxmTPf-TBhfLGAi5iCPQHaEQ?w=213&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="龟峰山" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+              <div class="p-4 text-white">
+                <p class="text-sm"><i class="fa fa-map-marker mr-1"></i> 黄冈市麻城市</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-secondary">龟峰山风景区</h3>
+            <p class="text-gray-600 text-sm">
+              龟峰山以其山形酷似一只昂首吞日的巨龟而得名，主峰海拔1320米，是国家AAAA级景区，尤以世界罕见的古杜鹃群落著称，有"杜鹃花城"之美誉。
+            </p>
+          </div>
+        </div>
+        
+        <!-- 景点5 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.5LkccTn35dcyYIlJ2IgM0wHaEK?w=232&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="五祖寺" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+              <div class="p-4 text-white">
+                <p class="text-sm"><i class="fa fa-map-marker mr-1"></i> 黄冈市黄梅县</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-secondary">五祖寺</h3>
+            <p class="text-gray-600 text-sm">
+              五祖寺是中国佛教禅宗第五代祖师弘忍大师的弘法道场，也是六祖慧能得法受衣钵之圣地，始建于唐永徽五年（654年），为全国重点文物保护单位。
+            </p>
+          </div>
+        </div>
+        
+        <!-- 景点6 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.zsh2hl2_YrRYMaqzTWTceAHaD2?w=310&h=198&c=7&rs=1&bgcl=fffffd&r=0&o=6&dpr=1.5&pid=23.1" alt="东坡赤壁" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+              <div class="p-4 text-white">
+                <p class="text-sm"><i class="fa fa-map-marker mr-1"></i> 黄冈市黄州区</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-secondary">东坡赤壁</h3>
+            <p class="text-gray-600 text-sm">
+              东坡赤壁是全国重点文物保护单位，因苏轼被贬黄州期间在此写下《赤壁赋》《念奴娇·赤壁怀古》等千古名篇而闻名，素有"文赤壁"之称。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特色美食 -->
+  <section id="food" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">舌尖上的黄冈</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">黄冈美食融合了鄂东地区的特色风味，既有山野之鲜，又有江湖之味，让人回味无穷。</p>
+        <div class="w-20 h-1 bg-accent mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 美食1 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4 h-64">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.WfBJ8WhFKdL4T4F6j7RH6AHaHa?w=120&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="黄州萝卜" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <h3 class="text-xl font-bold text-accent group-hover:underline">黄州萝卜</h3>
+          <p class="text-gray-600 text-sm">黄州萝卜是黄冈市黄州区特产，中国国家地理标志产品，有"土人参"之称，肉质脆嫩，味甜多汁。</p>
+        </div>
+        
+        <!-- 美食2 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4 h-64">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.Lzv1QQoq6lJ6HU1hKg2u4AHaHa?w=123&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="巴河藕" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <h3 class="text-xl font-bold text-accent group-hover:underline">巴河藕</h3>
+          <p class="text-gray-600 text-sm">巴河藕产自黄冈市浠水县巴河镇，以其洁白如玉、藕身粗壮、肉质肥厚、味道清甜而闻名，是鄂东名产。</p>
+        </div>
+        
+        <!-- 美食3 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4 h-64">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.SbjmdM4t3DjDC_Tr23KSHQHaHa?w=310&h=198&c=7&rs=1&bgcl=fffffe&r=0&o=6&dpr=1.5&pid=23.1" alt="麻城肉糕" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <h3 class="text-xl font-bold text-accent group-hover:underline">麻城肉糕</h3>
+          <p class="text-gray-600 text-sm">麻城肉糕是黄冈麻城市的传统名菜，以鲜鱼、猪肉为主要原料，蒸制而成，口感鲜嫩，风味独特，是当地宴席必备之品。</p>
+        </div>
+        
+        <!-- 美食4 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4 h-64">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.W7Ih9RfzB49DnAQnMrFJ6AHaFH?w=187&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="罗田板栗" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <h3 class="text-xl font-bold text-accent group-hover:underline">罗田板栗</h3>
+          <p class="text-gray-600 text-sm">罗田板栗是黄冈罗田县特产，中国国家地理标志产品，以其个大、肉厚、味甜、营养丰富而享誉国内外，有"板栗之乡"之称。</p>
+        </div>
+        
+        <!-- 美食5 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4 h-64">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.Xj3ysbWQQdSjkviW3tYcBQHaFF?w=312&h=200&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="蕲春酸米粉" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <h3 class="text-xl font-bold text-accent group-hover:underline">蕲春酸米粉</h3>
+          <p class="text-gray-600 text-sm">蕲春酸米粉是黄冈蕲春县的传统特色食品，以优质大米为原料，经传统工艺发酵制作而成，口感爽滑，酸味独特。</p>
+        </div>
+        
+        <!-- 美食6 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4 h-64">
+            <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.Z05HQpOQgRQctxLR2onjwQHaHa?w=155&h=200&c=12&rs=1&o=6&dpr=1.5&pid=23.1" alt="黄梅鱼面" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <h3 class="text-xl font-bold text-accent group-hover:underline">黄梅鱼面</h3>
+          <p class="text-gray-600 text-sm">黄梅鱼面是黄冈黄梅县的传统名吃，以鲜鱼、面粉为主要原料，经多道工序制作而成，既可作主食，又可作菜肴。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 文化底蕴 -->
+  <section id="culture" class="py-20 bg-gray-900 text-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">千年文脉，底蕴深厚</h2>
+        <p class="text-gray-300 max-w-2xl mx-auto">黄冈历史悠久，文化灿烂，是楚文化的重要发祥地之一，孕育了众多杰出人才和独特的文化遗产。</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <h3 class="text-2xl font-semibold mb-6 text-primary">教育之乡</h3>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            黄冈教育享誉全国，"黄冈中学"更是成为中国基础教育的一个品牌。黄冈历来重视教育，文风鼎盛，人才辈出，从这里走出了无数优秀学子。
+          </p>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            黄冈拥有深厚的教育传统，自宋代以来，这里就书院林立，学风浓厚。今天的黄冈，依然保持着对教育的高度重视，形成了独特的教育文化。
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <div class="bg-gray-800 px-4 py-2 rounded-full text-sm flex items-center">
+              <i class="fa fa-graduation-cap text-primary mr-2"></i> 黄冈中学
+            </div>
+            <div class="bg-gray-800 px-4 py-2 rounded-full text-sm flex items-center">
+              <i class="fa fa-book text-primary mr-2"></i> 百年名校
+            </div>
+            <div class="bg-gray-800 px-4 py-2 rounded-full text-sm flex items-center">
+              <i class="fa fa-users text-primary mr-2"></i> 人才辈出
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.gTf-jynRL3Lz22IJlYZPxgHaEK?w=191&h=108&c=7&qlt=90&bgcl=e2c9a8&r=0&o=6&dpr=1.5&pid=13.1" alt="黄冈教育" class="w-full h-auto rounded-lg shadow-xl">
+          <div class="absolute -top-4 -right-4 bg-primary text-white p-4 rounded-lg shadow-lg hidden md:block">
+            <p class="font-bold text-xl">1904年</p>
+            <p class="text-sm">黄冈中学建校</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- 历史名人 -->
+        <div class="bg-gray-800/50 rounded-lg p-6 backdrop-blur-sm transform transition-transform hover:scale-105">
+          <div class="text-primary text-4xl mb-4"><i class="fa fa-user-circle"></i></div>
+          <h3 class="text-xl font-bold mb-4">历史名人</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start">
+              <i class="fa fa-star text-primary mt-1 mr-2"></i>
+              <span>李时珍 - 明代著名医药学家，《本草纲目》作者</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-star text-primary mt-1 mr-2"></i>
+              <span>苏轼 - 宋代文学家，在黄州写下众多名篇</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-star text-primary mt-1 mr-2"></i>
+              <span>毕昇 - 北宋发明家，活字印刷术的发明者</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-star text-primary mt-1 mr-2"></i>
+              <span>李四光 - 著名地质学家，中国现代地质学奠基人</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- 革命文化 -->
+        <div class="bg-gray-800/50 rounded-lg p-6 backdrop-blur-sm transform transition-transform hover:scale-105">
+          <div class="text-primary text-4xl mb-4"><i class="fa fa-flag"></i></div>
+          <h3 class="text-xl font-bold mb-4">革命文化</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start">
+              <i class="fa fa-history text-primary mt-1 mr-2"></i>
+              <span>黄麻起义 - 中国共产党领导的著名武装起义</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-history text-primary mt-1 mr-2"></i>
+              <span>鄂豫皖革命根据地 - 中国重要的革命根据地</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-history text-primary mt-1 mr-2"></i>
+              <span>红四方面军诞生地 - 中国工农红军主力之一</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-history text-primary mt-1 mr-2"></i>
+              <span>200多位开国将帅出自黄冈地区</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- 地方文化 -->
+        <div class="bg-gray-800/50 rounded-lg p-6 backdrop-blur-sm transform transition-transform hover:scale-105">
+          <div class="text-primary text-4xl mb-4"><i class="fa fa-music"></i></div>
+          <h3 class="text-xl font-bold mb-4">地方文化</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start">
+              <i class="fa fa-music text-primary mt-1 mr-2"></i>
+              <span>黄梅戏 - 中国五大戏曲剧种之一，发源于黄梅县</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-paint-brush text-primary mt-1 mr-2"></i>
+              <span>黄冈民间艺术 - 剪纸、皮影戏、刺绣等丰富多彩</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-medkit text-primary mt-1 mr-2"></i>
+              <span>蕲春艾灸 - 国家级非物质文化遗产</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-book text-primary mt-1 mr-2"></i>
+              <span>东坡文化 - 苏轼在黄州留下的文化遗产</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 发展现状 -->
+  <section id="development" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">活力黄冈，发展新貌</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">近年来，黄冈市经济社会发展迅速，城市面貌日新月异，正在谱写高质量发展的新篇章。</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 mb-16">
+        <div>
+          <h3 class="text-2xl font-semibold mb-6 text-primary">经济发展</h3>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            黄冈市坚持新发展理念，大力发展特色产业，推动产业转型升级，经济持续健康发展。农业、制造业、旅游业等产业协调发展，形成了多元支撑的产业体系。
+          </p>
+          <div class="bg-gray-50 p-6 rounded-lg mb-6">
+            <h4 class="font-bold text-lg mb-4">支柱产业</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3">
+                  <i class="fa fa-leaf"></i>
+                </div>
+                <span>绿色食品加工</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3">
+                  <i class="fa fa-medkit"></i>
+                </div>
+                <span>大健康产业</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3">
+                  <i class="fa fa-car"></i>
+                </div>
+                <span>汽车零部件</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3">
+                  <i class="fa fa-plane"></i>
+                </div>
+                <span>文化旅游业</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="bg-gray-50 p-4 rounded-lg shadow-lg">
+            <canvas id="economyChart" height="300"></canvas>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- 交通建设 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2">
+          <div class="h-48 bg-gray-100 flex items-center justify-center">
+            <i class="fa fa-train text-6xl text-primary/70"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-primary">交通建设</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              黄冈交通便利，已形成铁路、公路、水路、航空立体交通网络，京九铁路、合武高铁、黄黄高铁穿境而过，长江黄金水道流经市域，黄冈大别山机场已开通多条航线。
+            </p>
+            <a href="#" class="text-primary hover:text-primary/80 font-medium text-sm inline-flex items-center">
+              了解更多 <i class="fa fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 城市建设 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2">
+          <div class="h-48 bg-gray-100 flex items-center justify-center">
+            <i class="fa fa-building text-6xl text-primary/70"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-primary">城市建设</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              黄冈城市面貌日新月异，城市功能不断完善，遗爱湖公园、白潭湖片区、城东新区等一批重点项目建成，城市品位显著提升，宜居宜业宜游的现代化城市格局正在形成。
+            </p>
+            <a href="#" class="text-primary hover:text-primary/80 font-medium text-sm inline-flex items-center">
+              了解更多 <i class="fa fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 乡村振兴 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2">
+          <div class="h-48 bg-gray-100 flex items-center justify-center">
+            <i class="fa fa-home text-6xl text-primary/70"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-primary">乡村振兴</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              黄冈大力实施乡村振兴战略，推进美丽乡村建设，发展特色农业，促进农旅融合，农村人居环境持续改善，农民生活水平不断提高，一幅乡村振兴的美丽画卷正在展开。
+            </p>
+            <a href="#" class="text-primary hover:text-primary/80 font-medium text-sm inline-flex items-center">
+              了解更多 <i class="fa fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 旅游推荐 -->
+  <section class="py-16 bg-primary/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-dark mb-4">欢迎来到黄冈</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">黄冈是一座充满魅力的城市，这里有红色的记忆、绿色的山水、金色的文化，等待您来探索。</p>
+      </div>
+      
+      <div class="text-center">
+        <a href="#" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-full transition-all transform hover:scale-105 shadow-lg">
+          规划您的黄冈之旅 <i class="fa fa-paper-plane ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 景点大全页面 -->
+<section id="attractions" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">黄冈景点大全</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">探索黄冈丰富多样的旅游景点，从自然山水到人文古迹，应有尽有</p>
+        <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+      </div>
+      
+      <!-- 景点分类筛选 -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in">
+        <button class="bg-secondary text-white px-6 py-2 rounded-full text-sm font-medium">全部景点</button>
+        <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-sm font-medium transition-colors">自然风光</button>
+        <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-sm font-medium transition-colors">人文古迹</button>
+        <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-sm font-medium transition-colors">红色旅游</button>
+        <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full text-sm font-medium transition-colors">城市公园</button>
+      </div>
+      
+      <!-- 景点列表 -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 景点1 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2 scale-in">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.7yVX34D4uGp0vr0bspbKEwHaE2?w=312&h=200&c=12&rs=1&o=6&dpr=1.5&pid=23.1" alt="大别山天堂寨" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute top-4 left-4 bg-secondary text-white text-xs px-2 py-1 rounded-full">5A景区</div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-secondary">大别山天堂寨</h3>
+              <div class="flex items-center text-yellow-500 text-sm">
+                <i class="fa fa-star"></i>
+                <span class="ml-1 text-gray-700">4.8</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">大别山主峰之一，集雄、奇、险、秀于一体，国家级自然保护区。</p>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 罗田县</span>
+              <a href="#" class="text-secondary hover:text-secondary/80 text-sm font-medium">查看详情</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 景点2 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2 scale-in" style="transition-delay: 100ms;">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.zsh2hl2_YrRYMaqzTWTceAHaD2?w=310&h=198&c=7&rs=1&bgcl=fffffd&r=0&o=6&dpr=1.5&pid=23.1" alt="东坡赤壁" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute top-4 left-4 bg-secondary text-white text-xs px-2 py-1 rounded-full">4A景区</div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-secondary">东坡赤壁</h3>
+              <div class="flex items-center text-yellow-500 text-sm">
+                <i class="fa fa-star"></i>
+                <span class="ml-1 text-gray-700">4.7</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">因苏轼在此写下《赤壁赋》而闻名，全国重点文物保护单位。</p>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 黄州区</span>
+              <a href="#" class="text-secondary hover:text-secondary/80 text-sm font-medium">查看详情</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 景点3 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2 scale-in" style="transition-delay: 200ms;">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.2ACxmTPf-TBhfLGAi5iCPQHaEQ?w=213&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="龟峰山" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute top-4 left-4 bg-secondary text-white text-xs px-2 py-1 rounded-full">4A景区</div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-secondary">龟峰山风景区</h3>
+              <div class="flex items-center text-yellow-500 text-sm">
+                <i class="fa fa-star"></i>
+                <span class="ml-1 text-gray-700">4.6</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">以其山形酷似巨龟得名，世界罕见的古杜鹃群落是最大特色。</p>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 麻城市</span>
+              <a href="#" class="text-secondary hover:text-secondary/80 text-sm font-medium">查看详情</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 景点4 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2 scale-in" style="transition-delay: 300ms;">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.ETKVBJFn0uOp11jkqW6dAAHaFj?w=173&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="薄刀峰" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute top-4 left-4 bg-secondary text-white text-xs px-2 py-1 rounded-full">4A景区</div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-secondary">薄刀峰风景区</h3>
+              <div class="flex items-center text-yellow-500 text-sm">
+                <i class="fa fa-star"></i>
+                <span class="ml-1 text-gray-700">4.5</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">因山峰形似薄刀而得名，以奇松、怪石、云海著称。</p>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 罗田县</span>
+              <a href="#" class="text-secondary hover:text-secondary/80 text-sm font-medium">查看详情</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 景点5 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2 scale-in" style="transition-delay: 400ms;">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.5LkccTn35dcyYIlJ2IgM0wHaEK?w=232&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="五祖寺" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute top-4 left-4 bg-secondary text-white text-xs px-2 py-1 rounded-full">4A景区</div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-secondary">五祖寺</h3>
+              <div class="flex items-center text-yellow-500 text-sm">
+                <i class="fa fa-star"></i>
+                <span class="ml-1 text-gray-700">4.7</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">中国佛教禅宗第五代祖师弘忍大师的弘法道场，历史悠久。</p>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 黄梅县</span>
+              <a href="#" class="text-secondary hover:text-secondary/80 text-sm font-medium">查看详情</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 景点6 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform transition-all duration-300 hover:-translate-y-2 scale-in" style="transition-delay: 500ms;">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.U18AbAL8CkR5upuKWdavKwHaE9?w=185&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="遗爱湖" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute top-4 left-4 bg-secondary text-white text-xs px-2 py-1 rounded-full">4A景区</div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-secondary">遗爱湖公园</h3>
+              <div class="flex items-center text-yellow-500 text-sm">
+                <i class="fa fa-star"></i>
+                <span class="ml-1 text-gray-700">4.6</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">黄冈市区内的城中湖，因苏轼《遗爱亭记》而得名，市民休闲胜地。</p>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 黄州区</span>
+              <a href="#" class="text-secondary hover:text-secondary/80 text-sm font-medium">查看详情</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 加载更多 -->
+      <div class="text-center mt-12 fade-in">
+        <button class="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-medium px-8 py-3 rounded-full transition-colors">
+          加载更多景点 <i class="fa fa-refresh ml-2"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 门票预订页面 -->
+  <section id="tickets" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">门票预订</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">提前预订黄冈各大景点门票，享受优惠价格和便捷服务</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- 左侧筛选 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 fade-in">
+          <h3 class="text-xl font-bold mb-6 text-dark">筛选条件</h3>
+          
+          <!-- 日期选择 -->
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2">参观日期</label>
+            <input type="date" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
+          </div>
+          
+          <!-- 景点类型 -->
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2">景点类型</label>
+            <div class="space-y-2">
+              <label class="flex items-center">
+                <input type="checkbox" class="form-checkbox text-primary">
+                <span class="ml-2 text-gray-600">自然风光</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="form-checkbox text-primary">
+                <span class="ml-2 text-gray-600">人文古迹</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="form-checkbox text-primary">
+                <span class="ml-2 text-gray-600">红色旅游</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="form-checkbox text-primary">
+                <span class="ml-2 text-gray-600">城市公园</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- 价格范围 -->
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2">价格范围</label>
+            <div class="space-y-2">
+              <label class="flex items-center">
+                <input type="radio" name="price" class="form-radio text-primary">
+                <span class="ml-2 text-gray-600">免费</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="price" class="form-radio text-primary">
+                <span class="ml-2 text-gray-600">¥1 - ¥50</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="price" class="form-radio text-primary">
+                <span class="ml-2 text-gray-600">¥51 - ¥100</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="price" class="form-radio text-primary">
+                <span class="ml-2 text-gray-600">¥100以上</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- 筛选按钮 -->
+          <button class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 rounded-lg transition-colors">
+            应用筛选
+          </button>
+        </div>
+        
+        <!-- 右侧门票列表 -->
+        <div class="lg:col-span-2 space-y-6">
+          <!-- 门票1 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row scale-in">
+            <div class="md:w-1/3">
+              <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.7yVX34D4uGp0vr0bspbKEwHaE2?w=312&h=200&c=12&rs=1&o=6&dpr=1.5&pid=23.1" alt="大别山天堂寨门票" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-2/3 p-6">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-bold text-dark">大别山天堂寨景区门票</h3>
+                  <div class="flex items-center text-yellow-500 text-sm mt-1">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <span class="ml-1 text-gray-600">4.8 (1200+评价)</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-gray-400 line-through text-sm">¥120</span>
+                  <p class="text-primary font-bold text-xl">¥95</p>
+                  <span class="text-xs text-green-600">节省¥25</span>
+                </div>
+              </div>
+              
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">含景区门票</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">有效期30天</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">随时退</span>
+              </div>
+              
+              <div class="mt-6 flex justify-between items-center">
+                <div class="text-sm text-gray-600">
+                  <i class="fa fa-map-marker text-primary mr-1"></i> 黄冈市罗田县
+                </div>
+                <button class="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-2 rounded-lg transition-colors">
+                  立即预订
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 门票2 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row scale-in" style="transition-delay: 100ms;">
+            <div class="md:w-1/3">
+              <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.zsh2hl2_YrRYMaqzTWTceAHaD2?w=310&h=198&c=7&rs=1&bgcl=fffffd&r=0&o=6&dpr=1.5&pid=23.1" alt="东坡赤壁门票" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-2/3 p-6">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-bold text-dark">东坡赤壁景区门票</h3>
+                  <div class="flex items-center text-yellow-500 text-sm mt-1">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <span class="ml-1 text-gray-600">4.5 (850+评价)</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-gray-400 line-through text-sm">¥70</span>
+                  <p class="text-primary font-bold text-xl">¥55</p>
+                  <span class="text-xs text-green-600">节省¥15</span>
+                </div>
+              </div>
+              
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">含景区门票</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">有效期15天</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">随时退</span>
+              </div>
+              
+              <div class="mt-6 flex justify-between items-center">
+                <div class="text-sm text-gray-600">
+                  <i class="fa fa-map-marker text-primary mr-1"></i> 黄冈市黄州区
+                </div>
+                <button class="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-2 rounded-lg transition-colors">
+                  立即预订
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 门票3 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row scale-in" style="transition-delay: 200ms;">
+            <div class="md:w-1/3">
+              <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.2ACxmTPf-TBhfLGAi5iCPQHaEQ?w=213&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="龟峰山门票" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-2/3 p-6">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-bold text-dark">龟峰山风景区门票+观光车</h3>
+                  <div class="flex items-center text-yellow-500 text-sm mt-1">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <span class="ml-1 text-gray-600">4.7 (1500+评价)</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-gray-400 line-through text-sm">¥160</span>
+                  <p class="text-primary font-bold text-xl">¥120</p>
+                  <span class="text-xs text-green-600">节省¥40</span>
+                </div>
+              </div>
+              
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">含门票+观光车</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">有效期7天</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">过期自动退</span>
+              </div>
+              
+              <div class="mt-6 flex justify-between items-center">
+                <div class="text-sm text-gray-600">
+                  <i class="fa fa-map-marker text-primary mr-1"></i> 黄冈市麻城市
+                </div>
+                <button class="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-2 rounded-lg transition-colors">
+                  立即预订
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 门票4 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row scale-in" style="transition-delay: 300ms;">
+            <div class="md:w-1/3">
+              <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.5LkccTn35dcyYIlJ2IgM0wHaEK?w=232&h=128&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="五祖寺门票" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-2/3 p-6">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-bold text-dark">五祖寺景区门票</h3>
+                  <div class="flex items-center text-yellow-500 text-sm mt-1">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <span class="ml-1 text-gray-600">4.6 (720+评价)</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-gray-400 line-through text-sm">¥50</span>
+                  <p class="text-primary font-bold text-xl">¥40</p>
+                  <span class="text-xs text-green-600">节省¥10</span>
+                </div>
+              </div>
+              
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">含景区门票</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">有效期30天</span>
+                <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">随时退</span>
+              </div>
+              
+              <div class="mt-6 flex justify-between items-center">
+                <div class="text-sm text-gray-600">
+                  <i class="fa fa-map-marker text-primary mr-1"></i> 黄冈市黄梅县
+                </div>
+                <button class="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-2 rounded-lg transition-colors">
+                  立即预订
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 分页 -->
+          <div class="flex justify-center mt-8 fade-in">
+            <nav class="inline-flex rounded-md shadow">
+              <a href="#" class="py-2 px-4 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-l-md">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+              <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-primary text-sm font-medium text-white">1</a>
+              <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">2</a>
+              <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">3</a>
+              <span class="py-2 px-4 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-700">...</span>
+              <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">8</a>
+              <a href="#" class="py-2 px-4 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-r-md">
+                <i class="fa fa-chevron-right"></i>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 酒店住宿页面 -->
+  <section id="hotels" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">酒店住宿</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">精选黄冈各类酒店，满足不同预算和需求，让您的旅途舒适惬意</p>
+        <div class="w-20 h-1 bg-accent mx-auto mt-4"></div>
+      </div>
+      
+      <!-- 酒店筛选 -->
+      <div class="bg-gray-50 rounded-lg p-6 mb-12 fade-in">
+        <div class="grid md:grid-cols-4 gap-6">
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">目的地</label>
+            <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50">
+              <option>黄冈市全部区域</option>
+              <option>黄州区</option>
+              <option>麻城市</option>
+              <option>罗田县</option>
+              <option>蕲春县</option>
+              <option>黄梅县</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">入住日期</label>
+            <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50">
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">离店日期</label>
+            <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50">
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">客人</label>
+            <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50">
+              <option>2成人, 0儿童</option>
+              <option>2成人, 1儿童</option>
+              <option>2成人, 2儿童</option>
+              <option>1成人, 0儿童</option>
+              <option>4成人, 0儿童</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="mt-6 flex flex-wrap gap-4">
+          <button class="bg-accent hover:bg-accent/90 text-white font-medium px-8 py-3 rounded-lg transition-colors">
+            搜索酒店
+          </button>
+          <button class="border border-gray-300 hover:bg-gray-100 px-6 py-3 rounded-lg transition-colors">
+            <i class="fa fa-sliders mr-2"></i> 更多筛选
+          </button>
+        </div>
+      </div>
+      
+      <!-- 酒店列表 -->
+      <div class="space-y-8">
+        <!-- 酒店1 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row transform transition-all duration-300 hover:shadow-xl scale-in">
+          <div class="md:w-1/4">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.3d3q2rIqgKj2lXqE1l5dMwHaE8?w=250&h=167&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="黄冈万达嘉华酒店" class="w-full h-full object-cover">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-bold text-dark">黄冈万达嘉华酒店</h3>
+            <div class="flex items-center mt-1 mb-3">
+              <div class="flex text-yellow-500">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <span class="ml-2 text-sm text-gray-600">五星级酒店 · 4.9分 (1200+评价)</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">
+              位于黄州核心商圈，毗邻万达广场，交通便利，设施豪华，提供高品质服务，是商务和休闲旅客的理想选择。
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">免费WiFi</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">游泳池</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">健身中心</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">免费停车</span>
+            </div>
+          </div>
+          <div class="md:w-1/4 p-6 border-t md:border-t-0 md:border-l border-gray-100 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-gray-500 text-sm">每晚均价</span>
+                <span class="bg-accent/10 text-accent text-xs px-2 py-1 rounded-full">可免费取消</span>
+              </div>
+              <div class="mb-4">
+                <span class="text-gray-400 line-through text-sm">¥680</span>
+                <p class="text-2xl font-bold text-dark">¥568</p>
+                <span class="text-xs text-gray-500">含税费</span>
+              </div>
+            </div>
+            <button class="w-full bg-accent hover:bg-accent/90 text-white font-medium py-3 rounded-lg transition-colors">
+              查看详情并预订
+            </button>
+          </div>
+        </div>
+        
+        <!-- 酒店2 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row transform transition-all duration-300 hover:shadow-xl scale-in" style="transition-delay: 100ms;">
+          <div class="md:w-1/4">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.Jd4pKfQbLbFd0VQZQf9c5AHaE8?w=250&h=167&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="黄冈纽宾凯国际酒店" class="w-full h-full object-cover">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-bold text-dark">黄冈纽宾凯国际酒店</h3>
+            <div class="flex items-center mt-1 mb-3">
+              <div class="flex text-yellow-500">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+              </div>
+              <span class="ml-2 text-sm text-gray-600">四星级酒店 · 4.7分 (950+评价)</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">
+              位于黄州新区，地理位置优越，装修现代，配备会议室和宴会厅，适合商务出行和家庭旅游。
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">免费WiFi</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">健身中心</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">免费停车</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">商务中心</span>
+            </div>
+          </div>
+          <div class="md:w-1/4 p-6 border-t md:border-t-0 md:border-l border-gray-100 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-gray-500 text-sm">每晚均价</span>
+                <span class="bg-accent/10 text-accent text-xs px-2 py-1 rounded-full">可免费取消</span>
+              </div>
+              <div class="mb-4">
+                <span class="text-gray-400 line-through text-sm">¥480</span>
+                <p class="text-2xl font-bold text-dark">¥398</p>
+                <span class="text-xs text-gray-500">含税费</span>
+              </div>
+            </div>
+            <button class="w-full bg-accent hover:bg-accent/90 text-white font-medium py-3 rounded-lg transition-colors">
+              查看详情并预订
+            </button>
+          </div>
+        </div>
+        
+        <!-- 酒店3 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row transform transition-all duration-300 hover:shadow-xl scale-in" style="transition-delay: 200ms;">
+          <div class="md:w-1/4">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.Si0Jqf4V2f2v5Q5c2Z8yJAHaE7?w=250&h=167&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="天堂寨度假酒店" class="w-full h-full object-cover">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-bold text-dark">天堂寨度假酒店</h3>
+            <div class="flex items-center mt-1 mb-3">
+              <div class="flex text-yellow-500">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+              <span class="ml-2 text-sm text-gray-600">四星级酒店 · 4.8分 (820+评价)</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">
+              位于大别山天堂寨景区内，环境优美，空气清新，推窗见景，是游览天堂寨的最佳住宿选择。
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">免费WiFi</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">山景房</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">免费停车</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">餐厅</span>
+            </div>
+          </div>
+          <div class="md:w-1/4 p-6 border-t md:border-t-0 md:border-l border-gray-100 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-gray-500 text-sm">每晚均价</span>
+                <span class="bg-accent/10 text-accent text-xs px-2 py-1 rounded-full">可免费取消</span>
+              </div>
+              <div class="mb-4">
+                <span class="text-gray-400 line-through text-sm">¥520</span>
+                <p class="text-2xl font-bold text-dark">¥458</p>
+                <span class="text-xs text-gray-500">含税费</span>
+              </div>
+            </div>
+            <button class="w-full bg-accent hover:bg-accent/90 text-white font-medium py-3 rounded-lg transition-colors">
+              查看详情并预订
+            </button>
+          </div>
+        </div>
+        
+        <!-- 酒店4 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row transform transition-all duration-300 hover:shadow-xl scale-in" style="transition-delay: 300ms;">
+          <div class="md:w-1/4">
+            <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.xD7gR3j5jvZJ0G3Z1dQ5bAHaE6?w=250&h=167&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="黄冈如家精选酒店" class="w-full h-full object-cover">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-bold text-dark">黄冈如家精选酒店</h3>
+            <div class="flex items-center mt-1 mb-3">
+              <div class="flex text-yellow-500">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+              </div>
+              <span class="ml-2 text-sm text-gray-600">三星级酒店 · 4.5分 (680+评价)</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">
+              位于黄州老城区，交通便利，价格实惠，干净整洁，提供贴心服务，适合预算有限的旅客。
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">免费WiFi</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">免费停车</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">早餐 included</span>
+              <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">24小时前台</span>
+            </div>
+          </div>
+          <div class="md:w-1/4 p-6 border-t md:border-t-0 md:border-l border-gray-100 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-gray-500 text-sm">每晚均价</span>
+                <span class="bg-accent/10 text-accent text-xs px-2 py-1 rounded-full">可免费取消</span>
+              </div>
+              <div class="mb-4">
+                <span class="text-gray-400 line-through text-sm">¥260</span>
+                <p class="text-2xl font-bold text-dark">¥198</p>
+                <span class="text-xs text-gray-500">含税费</span>
+              </div>
+            </div>
+            <button class="w-full bg-accent hover:bg-accent/90 text-white font-medium py-3 rounded-lg transition-colors">
+              查看详情并预订
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 加载更多 -->
+      <div class="text-center mt-12 fade-in">
+        <button class="border-2 border-accent text-accent hover:bg-accent hover:text-white font-medium px-8 py-3 rounded-full transition-colors">
+          加载更多酒店 <i class="fa fa-refresh ml-2"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 交通指南页面 -->
+  <section id="transport" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">交通指南</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">详细了解前往黄冈的各种交通方式，让您的出行更加便捷顺畅</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <!-- 交通方式选项卡 -->
+      <div class="mb-10 border-b border-gray-200 fade-in">
+        <div class="flex flex-wrap">
+          <button class="transport-tab py-4 px-6 font-medium text-primary border-b-2 border-primary">飞机</button>
+          <button class="transport-tab py-4 px-6 font-medium text-gray-500 hover:text-gray-700">火车</button>
+          <button class="transport-tab py-4 px-6 font-medium text-gray-500 hover:text-gray-700">汽车</button>
+          <button class="transport-tab py-4 px-6 font-medium text-gray-500 hover:text-gray-700">市内交通</button>
+        </div>
+      </div>
+      
+      <!-- 交通内容 -->
+      <div class="transport-content">
+        <!-- 飞机 -->
+        <div class="transport-pane active">
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 scale-in">
+              <h3 class="text-2xl font-bold text-dark mb-6">黄冈大别山机场</h3>
+              <p class="text-gray-700 mb-6 leading-relaxed">
+                黄冈大别山机场（IATA代码：HGN）位于黄冈市浠水县，是黄冈市唯一的民用机场，距离黄州城区约40公里，车程约50分钟。机场已开通至北京、上海、广州、深圳、西安、成都等多个城市的航线。
+              </p>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h4 class="font-bold text-lg mb-3 text-primary">机场巴士</h4>
+                  <p class="text-gray-600 text-sm mb-2">
+                    <i class="fa fa-bus text-primary mr-2"></i> 机场 → 黄州客运中心
+                  </p>
+                  <p class="text-gray-600 text-sm mb-4 pl-6">
+                    发车时间：根据航班到达时间而定<br>
+                    票价：25元/人<br>
+                    车程：约50分钟
+                  </p>
+                  
+                  <h4 class="font-bold text-lg mb-3 text-primary">出租车</h4>
+                  <p class="text-gray-600 text-sm mb-2">
+                    <i class="fa fa-taxi text-primary mr-2"></i> 机场 → 黄州城区
+                  </p>
+                  <p class="text-gray-600 text-sm pl-6">
+                    费用：约80-100元<br>
+                    车程：约50分钟
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 class="font-bold text-lg mb-3 text-primary">主要航线</h4>
+                  <ul class="space-y-2 text-gray-600 text-sm">
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-plane text-primary mr-2"></i> 黄冈 → 北京</span>
+                      <span>每日2班</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-plane text-primary mr-2"></i> 黄冈 → 上海</span>
+                      <span>每日1班</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-plane text-primary mr-2"></i> 黄冈 → 广州</span>
+                      <span>每日1班</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-plane text-primary mr-2"></i> 黄冈 → 深圳</span>
+                      <span>每日1班</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-plane text-primary mr-2"></i> 黄冈 → 西安</span>
+                      <span>每周3班</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold mb-2 flex items-center">
+                  <i class="fa fa-info-circle text-primary mr-2"></i> 机场联系方式
+                </h4>
+                <p class="text-gray-600 text-sm">
+                  咨询电话：0713-4855114<br>
+                  订票电话：0713-4855115<br>
+                  机场地址：湖北省黄冈市浠水县巴河镇
+                </p>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden scale-in" style="transition-delay: 200ms;">
+              <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.PQcP3kD6qQ3j5j3d3X3d3AHaE8?w=300&h=200&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="黄冈大别山机场" class="w-full h-56 object-cover">
+              <div class="p-6">
+                <h4 class="font-bold text-lg mb-4">航班查询</h4>
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-1">出发城市</label>
+                    <select class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm">
+                      <option>北京</option>
+                      <option>上海</option>
+                      <option>广州</option>
+                      <option>深圳</option>
+                      <option>西安</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-1">出发日期</label>
+                    <input type="date" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm">
+                  </div>
+                  <button class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-2 rounded-lg transition-colors text-sm">
+                    查询航班
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 火车 (默认隐藏) -->
+        <div class="transport-pane hidden">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-lg shadow-lg p-6 scale-in">
+              <h3 class="text-2xl font-bold text-dark mb-6">火车站信息</h3>
+              <p class="text-gray-700 mb-6 leading-relaxed">
+                黄冈铁路交通便利，京九铁路、合武高铁、黄黄高铁穿境而过，主要火车站有黄冈站、黄州站、麻城站、麻城北站、蕲春站、浠水站等。
+              </p>
+              
+              <div class="space-y-6">
+                <div>
+                  <h4 class="font-bold text-lg mb-3 text-primary">黄冈东站（高铁站）</h4>
+                  <p class="text-gray-600 text-sm mb-2">
+                    <i class="fa fa-map-marker text-primary mr-2"></i> 地址：黄冈市黄州区路口镇
+                  </p>
+                  <p class="text-gray-600 text-sm mb-2">
+                    <i class="fa fa-train text-primary mr-2"></i> 主要线路：合武高铁、黄黄高铁
+                  </p>
+                  <p class="text-gray-600 text-sm">
+                    <i class="fa fa-bus text-primary mr-2"></i> 公交：1路、5路、8路可直达市区
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 class="font-bold text-lg mb-3 text-primary">黄州站</h4>
+                  <p class="text-gray-600 text-sm mb-2">
+                    <i class="fa fa-map-marker text-primary mr-2"></i> 地址：黄冈市黄州区陈策楼镇
+                  </p>
+                  <p class="text-gray-600 text-sm mb-2">
+                    <i class="fa fa-train text-primary mr-2"></i> 主要线路：京九铁路
+                  </p>
+                  <p class="text-gray-600 text-sm">
+                    <i class="fa fa-bus text-primary mr-2"></i> 公交：9路可直达市区
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 class="font-bold text-lg mb-3 text-primary">主要高铁线路</h4>
+                  <ul class="space-y-2 text-gray-600 text-sm">
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-train text-primary mr-2"></i> 武汉 → 黄冈东</span>
+                      <span>约30分钟</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-train text-primary mr-2"></i> 黄冈东 → 合肥</span>
+                      <span>约2小时</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-train text-primary mr-2"></i> 黄冈东 → 南昌</span>
+                      <span>约1.5小时</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-train text-primary mr-2"></i> 黄冈东 → 上海</span>
+                      <span>约4.5小时</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 scale-in" style="transition-delay: 200ms;">
+              <h3 class="text-2xl font-bold text-dark mb-6">火车票查询</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 font-medium mb-1">出发站</label>
+                  <input type="text" placeholder="例如：武汉" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
+                </div>
+                <div>
+                  <label class="block text-gray-700 font-medium mb-1">到达站</label>
+                  <input type="text" placeholder="例如：黄冈东" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
+                </div>
+                <div>
+                  <label class="block text-gray-700 font-medium mb-1">出发日期</label>
+                  <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
+                </div>
+                <div class="flex gap-4">
+                  <label class="flex items-center flex-1">
+                    <input type="radio" name="ticket-type" class="form-radio text-primary" checked>
+                    <span class="ml-2 text-gray-600">高铁/动车</span>
+                  </label>
+                  <label class="flex items-center flex-1">
+                    <input type="radio" name="ticket-type" class="form-radio text-primary">
+                    <span class="ml-2 text-gray-600">普通列车</span>
+                  </label>
+                </div>
+                <button class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 rounded-lg transition-colors">
+                  查询车票
+                </button>
+              </div>
+              
+              <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                <h4 class="font-bold mb-2 text-sm">火车票预订渠道</h4>
+                <div class="flex flex-wrap gap-3">
+                  <span class="bg-white border border-gray-200 px-3 py-1 rounded-full text-xs flex items-center">
+                    <i class="fa fa-mobile text-primary mr-1"></i> 12306 app
+                  </span>
+                  <span class="bg-white border border-gray-200 px-3 py-1 rounded-full text-xs flex items-center">
+                    <i class="fa fa-globe text-primary mr-1"></i> 12306官网
+                  </span>
+                  <span class="bg-white border border-gray-200 px-3 py-1 rounded-full text-xs flex items-center">
+                    <i class="fa fa-ticket text-primary mr-1"></i> 车站窗口
+                  </span>
+                  <span class="bg-white border border-gray-200 px-3 py-1 rounded-full text-xs flex items-center">
+                    <i class="fa fa-credit-card text-primary mr-1"></i> 代售点
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 汽车 (默认隐藏) -->
+        <div class="transport-pane hidden">
+          <!-- 汽车交通内容 -->
+          <div class="bg-white rounded-lg shadow-lg p-6 mb-8 scale-in">
+            <h3 class="text-2xl font-bold text-dark mb-6">长途汽车</h3>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              黄冈公路交通发达，有多个长途汽车站，主要有黄州汽车客运站、黄冈市汽车客运中心等，开通至武汉、合肥、南昌等周边城市及市内各县镇的班车。
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold text-lg mb-3 text-primary">黄州汽车客运站</h4>
+                <p class="text-gray-600 text-sm mb-2">
+                  <i class="fa fa-map-marker text-primary mr-2"></i> 地址：黄州区西湖一路
+                </p>
+                <p class="text-gray-600 text-sm mb-2">
+                  <i class="fa fa-phone text-primary mr-2"></i> 电话：0713-8353716
+                </p>
+                <p class="text-gray-600 text-sm">
+                  <i class="fa fa-bus text-primary mr-2"></i> 主要线路：武汉、黄石、鄂州等
+                </p>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold text-lg mb-3 text-primary">黄冈市汽车客运中心</h4>
+                <p class="text-gray-600 text-sm mb-2">
+                  <i class="fa fa-map-marker text-primary mr-2"></i> 地址：黄州区赤壁大道
+                </p>
+                <p class="text-gray-600 text-sm mb-2">
+                  <i class="fa fa-phone text-primary mr-2"></i> 电话：0713-8822472
+                </p>
+                <p class="text-gray-600 text-sm">
+                  <i class="fa fa-bus text-primary mr-2"></i> 主要线路：各县镇及省际长途
+                </p>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold text-lg mb-3 text-primary">武汉至黄冈班车</h4>
+                <p class="text-gray-600 text-sm mb-2">
+                  <i class="fa fa-clock-o text-primary mr-2"></i> 发车时间：6:00-19:00 每30分钟一班
+                </p>
+                <p class="text-gray-600 text-sm mb-2">
+                  <i class="fa fa-money text-primary mr-2"></i> 票价：35元/人
+                </p>
+                <p class="text-gray-600 text-sm">
+                  <i class="fa fa-hourglass-half text-primary mr-2"></i> 车程：约1.5小时
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-lg shadow-lg p-6 scale-in" style="transition-delay: 100ms;">
+              <h3 class="text-2xl font-bold text-dark mb-6">自驾指南</h3>
+              <p class="text-gray-700 mb-6 leading-relaxed">
+                黄冈地处鄂东，交通便利，多条高速公路贯穿全境，适合自驾旅行。
+              </p>
+              
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-bold text-lg mb-2 text-primary">主要高速公路</h4>
+                  <ul class="space-y-1 text-gray-600 text-sm">
+                    <li class="flex items-start">
+                      <i class="fa fa-road text-primary mt-1 mr-2"></i>
+                      <span>沪蓉高速（G42）：连接上海、成都，经过黄冈</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fa fa-road text-primary mt-1 mr-2"></i>
+                      <span>大广高速（G45）：连接大庆、广州，经过黄冈</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fa fa-road text-primary mt-1 mr-2"></i>
+                      <span>麻武高速（S5）：连接麻城、武汉</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fa fa-road text-primary mt-1 mr-2"></i>
+                      <span>黄鄂高速（S38）：连接黄冈、鄂州</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 class="font-bold text-lg mb-2 text-primary">周边城市自驾时间</h4>
+                  <ul class="space-y-1 text-gray-600 text-sm">
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-car text-primary mr-2"></i> 武汉 → 黄冈</span>
+                      <span>约1.5小时</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-car text-primary mr-2"></i> 黄石 → 黄冈</span>
+                      <span>约1小时</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-car text-primary mr-2"></i> 鄂州 → 黄冈</span>
+                      <span>约40分钟</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-car text-primary mr-2"></i> 合肥 → 黄冈</span>
+                      <span>约3小时</span>
+                    </li>
+                    <li class="flex justify-between">
+                      <span><i class="fa fa-car text-primary mr-2"></i> 南昌 → 黄冈</span>
+                      <span>约3.5小时</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 scale-in" style="transition-delay: 200ms;">
+              <h3 class="text-2xl font-bold text-dark mb-6">汽车票查询</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 font-medium mb-1">出发城市</label>
+                  <input type="text" placeholder="例如：武汉" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
+                </div>
+                <div>
+                  <label class="block text-gray-700 font-medium mb-1">到达城市</label>
+                  <input type="text" placeholder="例如：黄冈" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
+                </div>
+                <div>
+                  <label class="block text-gray-700 font-medium mb-1">出发日期</label>
+                  <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
+                </div>
+                <button class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 rounded-lg transition-colors">
+                  查询汽车票
+                </button>
+              </div>
+              
+              <div class="mt-6">
+                <h4 class="font-bold mb-3 text-primary">自驾路线规划</h4>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <div class="flex gap-2 mb-3">
+                    <input type="text" placeholder="起点" class="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none text-sm">
+                    <input type="text" placeholder="终点" class="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none text-sm">
+                  </div>
+                  <button class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 rounded-lg transition-colors text-sm">
+                    规划路线
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 市内交通 (默认隐藏) -->
+        <div class="transport-pane hidden">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-lg shadow-lg p-6 scale-in">
+              <h3 class="text-2xl font-bold text-dark mb-6">公交车</h3>
+              <p class="text-gray-700 mb-6 leading-relaxed">
+                黄冈市区公交线路覆盖主要街道和景点，票价便宜，是市内出行的经济选择。
+              </p>
+              
+              <div class="mb-6">
+                <h4 class="font-bold text-lg mb-3 text-primary">主要公交线路</h4>
+                <div class="overflow-x-auto">
+                  <table class="min-w-full text-sm">
+                    <thead>
+                      <tr class="bg-gray-50">
+                        <th class="py-2 px-3 text-left font-medium text-gray-600">线路</th>
+                        <th class="py-2 px-3 text-left font-medium text-gray-600">起点</th>
+                        <th class="py-2 px-3 text-left font-medium text-gray-600">终点</th>
+                        <th class="py-2 px-3 text-left font-medium text-gray-600">票价</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                      <tr>
+                        <td class="py-2 px-3">1路</td>
+                        <td class="py-2 px-3">黄冈东站</td>
+                        <td class="py-2 px-3">西湖小区</td>
+                        <td class="py-2 px-3">2元</td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 px-3">5路</td>
+                        <td class="py-2 px-3">火车站</td>
+                        <td class="py-2 px-3">遗爱湖公园</td>
+                        <td class="py-2 px-3">2元</td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 px-3">8路</td>
+                        <td class="py-2 px-3">汽车客运站</td>
+                        <td class="py-2 px-3">黄冈职业技术学院</td>
+                        <td class="py-2 px-3">2元</td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 px-3">9路</td>
+                        <td class="py-2 px-3">黄州站</td>
+                        <td class="py-2 px-3">市中心医院</td>
+                        <td class="py-2 px-3">3元</td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 px-3">10路</td>
+                        <td class="py-2 px-3">南湖工业园</td>
+                        <td class="py-2 px-3">东坡赤壁</td>
+                        <td class="py-2 px-3">2元</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold mb-2 flex items-center">
+                  <i class="fa fa-info-circle text-primary mr-2"></i> 公交小贴士
+                </h4>
+                <ul class="space-y-1 text-gray-600 text-sm">
+                  <li>• 运营时间：一般为6:00-21:00</li>
+                  <li>• 支持现金、公交卡、支付宝/微信乘车码支付</li>
+                  <li>• 可通过"黄冈公交"APP查询实时公交信息</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="space-y-8">
+              <div class="bg-white rounded-lg shadow-lg p-6 scale-in" style="transition-delay: 100ms;">
+                <h3 class="text-2xl font-bold text-dark mb-6">出租车</h3>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                  黄冈市区出租车数量充足，起步价低，方便快捷，是市内短途出行的便捷选择。
+                </p>
+                
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4 mt-1 flex-shrink-0">
+                      <i class="fa fa-taxi"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold mb-1">计费标准</h4>
+                      <p class="text-gray-600 text-sm">
+                        起步价：6元（2公里内）<br>
+                        超过2公里：每公里1.8元<br>
+                        夜间（22:00-6:00）加收20%费用<br>
+                        等候费：每5分钟按1公里计费
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4 mt-1 flex-shrink-0">
+                      <i class="fa fa-mobile"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold mb-1">叫车方式</h4>
+                      <p class="text-gray-600 text-sm">
+                        • 街头扬招<br>
+                        • 电话叫车：0713-8888888<br>
+                        • 网约车：滴滴出行、高德打车等APP
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-white rounded-lg shadow-lg p-6 scale-in" style="transition-delay: 200ms;">
+                <h3 class="text-2xl font-bold text-dark mb-6">共享单车</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  黄冈市区已投放多种品牌共享单车，适合短距离出行，方便灵活。
+                </p>
+                
+                <div class="grid grid-cols-3 gap-4">
+                  <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fa fa-bicycle text-primary"></i></div>
+                    <h4 class="font-bold text-sm mb-1">哈啰单车</h4>
+                    <p class="text-gray-600 text-xs">1.5元/30分钟</p>
+                  </div>
+                  <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fa fa-bicycle text-primary"></i></div>
+                    <h4 class="font-bold text-sm mb-1">美团单车</h4>
+                    <p class="text-gray-600 text-xs">1.5元/30分钟</p>
+                  </div>
+                  <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fa fa-bicycle text-primary"></i></div>
+                    <h4 class="font-bold text-sm mb-1">青桔单车</h4>
+                    <p class="text-gray-600 text-xs">1.5元/30分钟</p>
+                  </div>
+                </div>
+                
+                <div class="mt-4 text-sm text-gray-600">
+                  <p class="font-bold mb-1">使用提示：</p>
+                  <ul class="list-disc pl-5 space-y-1">
+                    <li>需下载对应APP并实名认证</li>
+                    <li>需在指定区域内停放</li>
+                    <li>未满16周岁禁止骑行</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fa fa-map-marker text-primary mr-2"></i> 湖北黄冈
+          </h3>
+          <p class="text-gray-400 mb-4">
+            英雄的城市，人文的黄冈，教育的圣地。欢迎您来到这座充满魅力的城市。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fa fa-wechat"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fa fa-youtube-play"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+          <ul class="space-y-2">
+            <li><a href="#home" class="text-gray-400 hover:text-primary transition-colors">首页</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-primary transition-colors">城市介绍</a></li>
+            <li><a href="#nature" class="text-gray-400 hover:text-primary transition-colors">自然风光</a></li>
+            <li><a href="#food" class="text-gray-400 hover:text-primary transition-colors">特色美食</a></li>
+            <li><a href="#culture" class="text-gray-400 hover:text-primary transition-colors">文化底蕴</a></li>
+            <li><a href="#development" class="text-gray-400 hover:text-primary transition-colors">发展现状</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">旅游资源</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">旅游景点</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">旅游攻略</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">酒店住宿</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">交通指南</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">特色商品</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">旅游咨询</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">联系我们</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">湖北省黄冈市黄州区</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-phone text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">0713-1234567</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-envelope text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">info@huanggang-tourism.com</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-clock-o text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">周一至周日 9:00-18:00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+        <p>© 2023 湖北黄冈旅游网. 版权所有.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        navbar.classList.add('bg-dark/90', 'shadow-lg', 'bg-blur');
+        navbar.classList.remove('bg-transparent');
+        
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+      } else {
+        navbar.classList.remove('bg-dark/90', 'shadow-lg', 'bg-blur');
+        navbar.classList.add('bg-transparent');
+        
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    // 移动端菜单开关
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuToggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+  // 切换图标（汉堡/关闭）
+  const icon = menuToggle.querySelector('i');
+  if (icon.classList.contains('fa-bars')) {
+    icon.classList.replace('fa-bars', 'fa-times');
+  } else {
+    icon.classList.replace('fa-times', 'fa-bars');
+  }
+});
+
+// 移动端二级导航展开/收起
+document.querySelectorAll('.mobile-submenu-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    const parent = this.closest('.mobile-submenu');
+    const submenu = parent.querySelector('.mobile-submenu-content');
+    
+    // 切换子菜单显示状态
+    submenu.classList.toggle('hidden');
+    // 切换图标（+/-）
+    if (this.classList.contains('fa-plus')) {
+      this.classList.replace('fa-plus', 'fa-minus');
+    } else {
+      this.classList.replace('fa-minus', 'fa-plus');
+    }
+  });
+});
+
+// 点击导航链接后关闭移动端菜单
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (!mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+      menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+    }
+  });
+});
+
+
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // 关闭移动菜单（如果打开）
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          const icon = menuToggle.querySelector('i');
+          icon.classList.replace('fa-times', 'fa-bars');
+        }
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // 返回顶部
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 经济发展图表
+    const ctx = document.getElementById('economyChart').getContext('2d');
+    const economyChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: '地区生产总值（亿元）',
+          data: [1921, 2121, 2169, 2458, 2620, 2800],
+          backgroundColor: 'rgba(196, 30, 58, 0.1)',
+          borderColor: 'rgba(196, 30, 58, 1)',
+          borderWidth: 2,
+          tension: 0.3,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: '黄冈市近年经济发展趋势'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+            grid: {
+              color: 'rgba(0, 0, 0, 0.05)'
+            }
+          },
+          x: {
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
+    });
+    
+    // 图片懒加载
+    document.addEventListener("DOMContentLoaded", function() {
+      const lazyImages = [].slice.call(document.querySelectorAll("img"));
+      
+      if ("IntersectionObserver" in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              let lazyImage = entry.target;
+              lazyImage.src = lazyImage.dataset.src || lazyImage.src;
+              lazyImageObserver.unobserve(lazyImage);
+            }
+          });
+        });
+        
+        lazyImages.forEach(function(lazyImage) {
+          lazyImageObserver.observe(lazyImage);
+        });
+      }
+    });
+    // 交通方式选项卡切换
+const transportTabs = document.querySelectorAll('.transport-tab');
+const transportPanes = document.querySelectorAll('.transport-pane');
+
+transportTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    // 移除所有选项卡的活跃状态
+    transportTabs.forEach(t => {
+      t.classList.remove('text-primary', 'border-b-2', 'border-primary');
+      t.classList.add('text-gray-500');
+    });
+    
+    // 添加当前选项卡的活跃状态
+    tab.classList.add('text-primary', 'border-b-2', 'border-primary');
+    tab.classList.remove('text-gray-500');
+    
+    // 隐藏所有内容面板
+    transportPanes.forEach(pane => pane.classList.add('hidden'));
+    
+    // 显示当前内容面板
+    transportPanes[index].classList.remove('hidden');
+  });
+});
+
+// 滚动动画触发
+function handleScrollAnimations() {
+  const elements = document.querySelectorAll('.fade-in, .scale-in');
+  
+  elements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+    const elementVisible = 150;
+    
+    if (elementTop < window.innerHeight - elementVisible) {
+      element.classList.add('active');
+    }
+  });
+}
+
+// 初始加载和滚动时触发动画
+window.addEventListener('load', handleScrollAnimations);
+window.addEventListener('scroll', handleScrollAnimations);
+
+// 平滑滚动到锚点位置
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault(); // 阻止默认跳转行为
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      // 滚动到目标区域
+      targetElement.scrollIntoView({
+        behavior: 'smooth' // 平滑滚动
+      });
+    }
+  });
+});
+  </script>
+</body>
+</html>
